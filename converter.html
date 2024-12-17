@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Height Converter</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <h1>Height Converter</h1>
+    <div class="container">
+        <button onclick="convertHeight()">Convert Height</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertHeight() {
+            let choice = prompt("Choose the converter type:\n1. Feet & Inches to Centimeter\n2. Centimeter to Feet & Inches");
+
+            if (choice === "1") {
+                let feetInches = prompt("Input your height in feet and inches (e.g., 5'7 or 5'9)");
+                let regex = /^(\d+)'(\d+)$/;
+                let match = feetInches.match(regex);
+
+                if (match) {
+                    let feet = parseInt(match[1]);
+                    let inches = parseInt(match[2]);
+                    let totalInches = feet * 12 + inches;
+                    let centimeter = totalInches * 2.54;
+                    document.getElementById("result").innerHTML = `${feetInches} is equal to ${centimeter.toFixed(2)} centimeters.`;
+                } else {
+                    alert("Invalid format! Please enter the height in the format: 5'7 (feet'inches)");
+                }
+
+            } else if (choice === "2") {
+                let centimeter = prompt("Input your height in centimeters");
+                centimeter = parseFloat(centimeter);
+
+                if (isNaN(centimeter)) {
+                    alert("Invalid input! Please enter a valid number.");
+                } else {
+                    let totalInches = centimeter / 2.54;
+                    let feet = Math.floor(totalInches / 12);
+                    let inches = Math.round(totalInches % 12);
+                    document.getElementById("result").innerHTML = `${centimeter} centimeters is equal to ${feet}'${inches} inches.`;
+                }
+            } else {
+                alert("Invalid choice! Please select 1 or 2 to continue.");
+            }
+        }
+    </script>
+</body>
+</html>
