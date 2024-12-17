@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head or Tail Machine</title>
+</head>
+<body>
+    <h1>Head or Tail Randomization</h1>
+    <div id="result"></div>
+
+    <script>
+        let n = parseInt(prompt("How many Rounds?"));
+        let resultText = "";
+
+        for (let i = 0; i < n; i++) {
+            let answer = prompt("Head or Tail? Please Input your answer");
+            let random_answer = "";
+
+            if (Math.random() <= 0.5) {
+                random_answer = "Head";
+            } else {
+                random_answer = "Tail";
+            }
+
+            if (answer === random_answer) {
+                resultText += "Round " + (i + 1) + ": You won!<br>";
+            } else {
+                resultText += "Round " + (i + 1) + ": You Lose<br>";
+            }
+        }
+
+        document.getElementById("result").innerHTML = resultText;
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Cost Calculation Program</title>
+</head>
+<body>
+    <h1>Food Cost Calculation Program</h1>
+    <div id="price"></div>
+    <div id="result"></div>
+
+    <script>
+        let n = parseInt(prompt("Food numbers:"));
+        let sum = 0;
+        
+         for (var i = 1; i <= n; i++) {
+            let price = prompt("The Number of the Dish " + i);
+            sum += parseInt(price);
+            document.getElementById("price").innerHTML += "Price of the Food dish " + i + " is $" + price + "<br>";
+        }
+        
+        document.getElementById("result").innerHTML = "All food cost is: $" + sum;
+    </script>
+</body>
+</html>

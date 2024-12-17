@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div id="result"></div>
+    
+    <button onclick="convertTemperature()">Convert Temperature</button>
+
+    <script>
+        function convertTemperature() {
+            let choice = prompt("Choose the converter type:\n1. Celsius to Fahrenheit\n2. Fahrenheit to Celsius");
+            
+            if (choice === "1") {
+                let celsius = prompt("Input your Temperature in °C");
+                let fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById("result").innerHTML = `${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F`;
+            } else if (choice === "2") {
+                let fahrenheit = prompt("Input your Temperature in °F");
+                let celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById("result").innerHTML = `${fahrenheit}°F is equal to ${celsius.toFixed(2)}°C`;
+            } else {
+                alert("Wrong input. Please try again later.");
+            }
+
+        }
+        // function sayhello()
+        // {
+        //     alert("Hello");
+        // }
+        // function getage()
+        // {
+        //     return 17
+        // }
+        
+        // let input = prompt("enter your name")
+        // alert(sayhello(input, "TSS"))
+    </script>
+</body>
+</html>
